@@ -10,8 +10,12 @@ import com.ust.calc.resta.service.Calculadora;
 @RestController
 public class CalculadoraController {
 	
-	@Autowired
 	private Calculadora calculadora;
+	
+	@Autowired
+	public CalculadoraController(Calculadora calculadora) {
+		this.calculadora = calculadora;
+	}
 	
 	@GetMapping("/resta/{uno}/{dos}")
 	public Integer realizarResta(@PathVariable Integer uno, @PathVariable Integer dos) {
